@@ -76,10 +76,11 @@ public class BNK48 extends Application{
                                 canvas.getChildren().remove(index);
                                 canvas.getChildren().add(index, Kero.createFish(pos_X + 77, pos_Y, list.get(i).r, list.get(i).g, list.get(i).b, true));
                             }
-                            if (atRightBorder && activeRight && !list.get(i).dying) {
+//                            Sent double times fix bug here
+                            if (atRightBorder && activeRight) {
                                 tank.sent((MyID)+"_" + pos_X + "|" + pos_Y + "|" + list.get(i).deltaX + "|" + list.get(i).deltaY + "|" + list.get(i).r + "|" + list.get(i).g + "|" + list.get(i).b + "");
                                 list.get(i).dying = true;
-                            } else if (atLeftBorder && activeLeft && !list.get(i).dying) {
+                            } else if (atLeftBorder && activeLeft) {
                                 tank.sent((MyID-2)+"_" + pos_X + "|" + pos_Y + "|" + list.get(i).deltaX + "|" + list.get(i).deltaY + "|" + list.get(i).r + "|" + list.get(i).g + "|" + list.get(i).b + "");
                                 list.get(i).dying = true;
                             }

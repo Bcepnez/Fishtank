@@ -9,14 +9,18 @@ import javafx.application.Platform;
 
 public class Coonector extends Thread {
 
+	final String url;
+    final int port;
 	private Socket socket;
 	private OutputStream toServer;
 	private BNK48 control;
 	public Coonector(String ip,int port,BNK48 tmp) {
 		// TODO Auto-generated constructor stub
-		control = tmp;
+		this.url = ip;
+        this.port = port;
+		this.control = tmp;
 		try {
-			socket = new Socket(ip, port);
+			socket = new Socket(url, port);
 			toServer = socket.getOutputStream();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -45,7 +49,7 @@ public class Coonector extends Thread {
 								String str = in.readUTF();
 								System.out.println(str);
 								String[] strSplit = str.split("_");
-								if (strSplit[0].matches("#Client(.*)")) {
+								if (strSplit[0].matches("#Create(.*)")) {
 									BNK48 tmp;
                                     tmp = control;
                                     String[] strData = strSplit[1].split("\\|");
