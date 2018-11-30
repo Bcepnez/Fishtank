@@ -80,7 +80,7 @@ public class Coonector extends Thread {
                                         public void run() {
                                         	
                                         		System.out.println(strSplit[0]+"Create");
-                                                tmp.frogCreate(originX, originY, dX, dY, r, g, b);
+                                                tmp.createFish(originX, originY, dX, dY, r, g, b);
 											
                                         }
                                     });
@@ -128,7 +128,7 @@ public class Coonector extends Thread {
 	}
 	public void sent(String str) {
         try {
-            DataOutputStream out = new DataOutputStream(toServer);
+            DataOutputStream out = new DataOutputStream(toServer);System.out.println("Out going");
             out.flush();
             out.writeUTF(str);
         } catch (IOException ex) {

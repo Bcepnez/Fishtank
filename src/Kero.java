@@ -1,8 +1,14 @@
+import java.io.Serializable;
+
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 
-public class Kero {
+public class Kero implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	double deltaX,deltaY;
 	double r,g,b;
 	boolean dying;
